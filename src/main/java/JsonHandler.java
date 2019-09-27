@@ -46,7 +46,7 @@ public class JsonHandler {
     public void convertToURLList(List<String> keyList){
         Iterator<String> iter = keyList.iterator();
         while(iter.hasNext()){
-           this.URLList.add(String.format("https://www.amazon.com/s?k=%s&ref=nb_sb_noss", iter.next()));
+           this.URLList.add(String.format("https://www.amazon.com/dp/%s", iter.next()));
         }
     }
 

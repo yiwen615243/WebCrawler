@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a451f87-6bf0-49d1-92d5-317be4fa8c80" name="Default Changelist" comment="" />
+    <list default="true" id="8a451f87-6bf0-49d1-92d5-317be4fa8c80" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AmazonASINProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AmazonASINProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AmazonASINProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AmazonASINProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/JsonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/JsonHandler.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +116,7 @@
       <updated>1569517306327</updated>
       <workItem from="1569517311204" duration="1776000" />
       <workItem from="1569519113846" duration="15328000" />
-      <workItem from="1569604786410" duration="1077000" />
+      <workItem from="1569604786410" duration="7490000" />
     </task>
     <servers />
   </component>
