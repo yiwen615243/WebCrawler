@@ -50,21 +50,29 @@ public class JsonHandler {
         }
     }
 
-    public void readProcess(String key) {
+    public JsonNode readProcess(String key){
+        JsonNode keyNode = null;
         try{
             byte[] jsonData = Files.readAllBytes(Paths.get(jsonPath));
-
             ObjectMapper objMapper = new ObjectMapper();
-
             JsonNode rootNode = objMapper.readTree(jsonData);
-            JsonNode keyNode = getJsonNodeByKey(key, rootNode);
-
-            iniDataList(keyNode);
-            convertToURLList(keyList);
+            keyNode = getJsonNodeByKey(key, rootNode);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return keyNode;
+    }
+
+    public void readList(String key) {
+            JsonNode keyNode = readProcess(key);
+            iniDataList(keyNode);
+            convertToURLList(keyList);
+    }
+
+    public String readItem(String key){
+        JsonNode keyNode = readProcess(key);
+        return keyNode.asText();
     }
 }

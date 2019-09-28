@@ -4,8 +4,11 @@ import java.util.Map;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.monitor.SpiderMonitor;
 import us.codecraft.webmagic.pipeline.FilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
+
+import javax.management.JMException;
 
 
 public class AmazonASINProcessor implements PageProcessor {
@@ -13,7 +16,7 @@ public class AmazonASINProcessor implements PageProcessor {
     // 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
     private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
 
-    private static int lock  = 0;
+    private static boolean onlyRunOnce  = true;
 
     // process是定制爬虫逻辑的核心接口，在这里编写抽取逻辑
     public void process(Page page) {
@@ -33,9 +36,9 @@ public class AmazonASINProcessor implements PageProcessor {
         }
 
         // 部分三：从页面发现后续的url地址来抓取
-        if(lock < 1) {
+        if(onlyRunOnce == true) {
             page.addTargetRequests(page.getHtml().links().regex("https://www.amazon.com/dp/\\w+/ref=psdc.*").all());
-            lock++;
+            onlyRunOnce = false;
         }
         System.out.println("get page: " + page.getResultItems().getRequest().getUrl());
         for (Map.Entry<String, Object> entry : page.getResultItems().getAll().entrySet()) {
@@ -50,19 +53,23 @@ public class AmazonASINProcessor implements PageProcessor {
     public static void main(String[] args) {
 
         JsonHandler jsonHandler = new JsonHandler();
-        jsonHandler.readProcess("ASIN");
-        jsonHandler.printAll();
+        jsonHandler.readList("ASIN");
+        List<String>urlLists = jsonHandler.URLList;
+
+        jsonHandler.readList("Saving Destination");
+        String address = jsonHandler.keyList.get(0);
+      //  System.out.println(jsonHandler.readItem("Saving Destination"));
 
         Spider spider = Spider.create(new AmazonASINProcessor()).thread(2);
 
-        for(String list : jsonHandler.URLList) {
+        for(String list : urlLists) {
             spider.addUrl(list)
-                    .addPipeline(new FilePipeline("C:\\Users\\Yiwen Gu\\Desktop\\output"))
+                    .addPipeline(new FilePipeline(jsonHandler.readItem("Saving Destination")))
                     //开启5个线程抓取
                     // .thread(10)
                     //启动爬虫
                     .run();
-            lock = 0;
+            onlyRunOnce = true;
         }
     }
 }

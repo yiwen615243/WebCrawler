@@ -5,8 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AmazonASINProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AmazonASINProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/JsonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AmazonASINProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AmazonASINProcessor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/JsonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/JsonHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +118,7 @@
       <updated>1569517306327</updated>
       <workItem from="1569517311204" duration="1776000" />
       <workItem from="1569519113846" duration="15328000" />
-      <workItem from="1569604786410" duration="7490000" />
+      <workItem from="1569604786410" duration="11552000" />
     </task>
     <servers />
   </component>
